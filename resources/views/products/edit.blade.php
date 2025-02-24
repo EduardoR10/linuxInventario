@@ -10,37 +10,48 @@
         <!-- Nombre Corto -->
         <div class="mb-3">
             <label for="nombrecorto" class="form-label">Nombre Corto</label>
-            <input type="text" class="form-control" id="nombrecorto" name="nombrecorto" value="{{ $product->nombrecorto }}" required>
+            <input type="text" class="form-control" id="nombrecorto" name="nombrecorto" value="{{ $product->NombreCorto }}" required>
         </div>
 
         <!-- Descripción -->
         <div class="mb-3">
             <label for="descripcion" class="form-label">Descripción</label>
-            <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ $product->descripcion }}">
+            <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ $product->Descripcion }}">
         </div>
 
         <!-- Serie -->
         <div class="mb-3">
             <label for="serie" class="form-label">Serie</label>
-            <input type="text" class="form-control" id="serie" name="serie" value="{{ $product->serie }}">
+            <input type="text" class="form-control" id="serie" name="serie" value="{{ $product->Serie }}">
         </div>
 
         <!-- Color -->
         <div class="mb-3">
             <label for="color" class="form-label">Color</label>
-            <input type="text" class="form-control" id="color" name="color" value="{{ $product->color }}">
+            <input type="text" class="form-control" id="color" name="color" value="{{ $product->Color }}">
         </div>
 
         <!-- Fecha de Adquisición -->
         <div class="mb-3">
             <label for="fechaadquisicion" class="form-label">Fecha de Adquisición</label>
-            <input type="date" class="form-control" id="fechaadquisicion" name="fechaadquisicion" value="{{ $product->fechaadquisicion }}">
+            <input type="date" class="form-control" id="fechaadquisicion" name="fechaadquisicion" value="{{ $product->FechaAdquisicion }}">
         </div>
 
         <!-- Observaciones -->
         <div class="mb-3">
             <label for="observaciones" class="form-label">Observaciones</label>
-            <input type="text" class="form-control" id="observaciones" name="observaciones" value="{{ $product->observaciones }}">
+            <input type="text" class="form-control" id="observaciones" name="observaciones" value="{{ $product->Observaciones }}">
+        </div>
+
+        <!-- Tipo de Adquisición -->
+        <div class="mb-3">
+            <label for="tipoadquisicion" class="form-label
+            ">Tipo de Adquisición</label>
+            <select class="form-control" id="tipoadquisicion" name="tipoadquisicion" required>
+                <option value="Compra" {{ $product->tipoadquisicion == 'Compra' ? 'selected' : '' }}>Compra</option>
+                <option value="Donación" {{ $product->tipoadquisicion == 'Donación' ? 'selected' : '' }}>Donación</option>
+                <option value="Transferencia" {{ $product->tipoadquisicion == 'Transferencia' ? 'selected' : '' }}>Transferencia</option>
+            </select>
         </div>
 
         <!-- Área -->
@@ -49,7 +60,7 @@
             <select class="form-control" id="areas_id" name="areas_id" required>
                 @foreach ($areas as $area)
                     <option value="{{ $area->id }}" {{ $product->areas_id == $area->id ? 'selected' : '' }}>
-                        {{ $area->nombre }}
+                        {{ $area->Nombre }}
                     </option>
                 @endforeach
             </select>

@@ -29,6 +29,7 @@
                             <th>Serie</th>
                             <th>Color</th>
                             <th>Fecha Adquisición</th>
+                            <th>Tipo Adquisición</th>
                             <th>Observaciones</th>
                             <th>Área</th>
                             <th>Acciones</th>
@@ -38,13 +39,14 @@
                         @foreach ($products as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->nombrecorto }}</td>
-                                <td>{{ $item->descripcion }}</td>
-                                <td>{{ $item->serie }}</td>
-                                <td>{{ $item->color }}</td>
-                                <td>{{ $item->fechaadquisicion }}</td>
-                                <td>{{ $item->observaciones }}</td>
-                                <td>{{ $item->area->nombre }}</td>
+                                <td>{{ $item->NombreCorto }}</td>
+                                <td>{{ $item->Descripcion }}</td>
+                                <td>{{ $item->Serie }}</td>
+                                <td>{{ $item->Color }}</td>
+                                <td>{{ $item->FechaAdquisicion }}</td>
+                                <td>{{ $item->TipoAdquisicion }}</td>
+                                <td>{{ $item->Observaciones }}</td>
+                                <td>{{ $item->area->Nombre}}</td>
                                 <td style="width: 100px; ">
                                     <!-- Botón de Editar -->
                                     <a href="{{ route('products.edit', $item->id) }}" class="btn btn-warning">

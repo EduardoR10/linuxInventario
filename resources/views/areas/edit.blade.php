@@ -9,12 +9,12 @@
         @method('PUT')
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" value="{{ $area->nombre }}" required>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="{{ $area->Nombre }}" required>
         </div>
 
         <div class="mb-3">
             <label for="ubicacion" class="form-label">Ubicación</label>
-            <input type="text" class="form-control" id="ubicacion" name="ubicacion" value="{{ $area->ubicacion }}" required>
+            <input type="text" class="form-control" id="ubicacion" name="ubicacion" value="{{ $area->Ubicacion }}" required>
         </div>
 
         <button type="submit" class="btn btn-success">Actualizar</button>

@@ -14,7 +14,8 @@ class Product extends Model
      *
      * @var string
      */
-    protected $table = 'inventario';
+    protected $table = 'Inventario';
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -27,6 +28,7 @@ class Product extends Model
         'serie',
         'color',
         'fechaadquisicion',
+        'tipoadquisicion',
         'observaciones',
         'areas_id',
     ];
@@ -34,8 +36,7 @@ class Product extends Model
     /**
      * Get the area that owns the inventory.
      */
-    public function area()
-    {
-        return $this->belongsTo(Area::class, 'areas_id');
+    public function area() {
+        return $this->belongsTo(Area::class, 'Areas_id');
     }
 }

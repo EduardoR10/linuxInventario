@@ -11,7 +11,7 @@ class ProductController extends Controller
     // Mostrar todos los productos activos
     public function showProducts()
     {
-        $products = Product::get();
+        $products = Product::with('area')->get();
         return view('products.index', compact('products'));
     }
 
@@ -30,9 +30,10 @@ class ProductController extends Controller
             'descripcion' => 'nullable|string|max:45',
             'serie' => 'nullable|string|max:45',
             'color' => 'nullable|string|max:45',
-            'fechaadquisicion' => 'nullable|string|max:45',
+            'fechaadquisicion' => 'required|date',
+            'tipoadquisicion' => 'required|in:Donación,Compra,Transferencia',     
             'observaciones' => 'nullable|string|max:45',
-            'areas_id' => 'required|exists:areas,id',  // Validación para área
+            'areas_id' => 'required|exists:Areas,id',  
         ]);
 
         // Crear el producto con los datos recibidos
@@ -42,8 +43,9 @@ class ProductController extends Controller
             'serie' => $request->serie,
             'color' => $request->color,
             'fechaadquisicion' => $request->fechaadquisicion,
+            'tipoadquisicion' => $request->tipoadquisicion,
             'observaciones' => $request->observaciones,
-            'areas_id' => $request->areas_id,  // Asumimos que el área es un id válido
+            'areas_id' => $request->areas_id, 
         ]);
 
         return redirect()->route('products.index')->with('success', 'Product added successfully!');
@@ -65,9 +67,10 @@ class ProductController extends Controller
             'descripcion' => 'nullable|string|max:45',
             'serie' => 'nullable|string|max:45',
             'color' => 'nullable|string|max:45',
-            'fechaadquisicion' => 'nullable|string|max:45',
+            'fechaadquisicion' => 'required|date',
+            'tipoadquisicion' => 'required|in:Donación,Compra,Transferencia',
             'observaciones' => 'nullable|string|max:45',
-            'areas_id' => 'required|exists:areas,id',  // Validación para área
+            'areas_id' => 'required|exists:Areas,id',  // Validación para área
         ]);
 
         // Actualizar los campos del producto
@@ -77,6 +80,7 @@ class ProductController extends Controller
             'serie' => $request->serie,
             'color' => $request->color,
             'fechaadquisicion' => $request->fechaadquisicion,
+            'tipoadquisicion' => $request->tipoadquisicion,
             'observaciones' => $request->observaciones,
             'areas_id' => $request->areas_id,  // Mantener el área si se actualiza
         ]);

@@ -17,8 +17,8 @@
             @foreach ($areas as $area)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $area->nombre }}</td>
-                <td>{{ $area->ubicacion }}</td>
+                <td>{{ $area->Nombre }}</td>
+                <td>{{ $area->Ubicacion }}</td>
                 <td>
                     <a href="{{ route('areas.edit', $area->id) }}" class="btn btn-warning btn-sm">Editar</a>
                     <form action="{{ route('areas.destroy', $area->id) }}" method="POST" style="display:inline;">

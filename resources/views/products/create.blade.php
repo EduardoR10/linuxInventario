@@ -36,6 +36,16 @@
             <input type="date" class="form-control" id="fechaadquisicion" name="fechaadquisicion">
         </div>
 
+        <!-- Tipo de Adquisición -->
+        <div class="mb-3">
+            <label for="tipoadquisicion" class="form-label">Tipo de Adquisición</label>
+            <select class="form-control" id="tipoadquisicion" name="tipoadquisicion" required>
+                <option value="Compra">Compra</option>
+                <option value="Donación">Donación</option>
+                <option value="Transferencia">Transferencia</option>
+            </select>
+        </div>
+
         <!-- Observaciones -->
         <div class="mb-3">
             <label for="observaciones" class="form-label">Observaciones</label>
@@ -48,7 +58,7 @@
             <select class="form-control" id="areas_id" name="areas_id" required>
                 <!-- Aquí deberías cargar las áreas desde la base de datos -->
                 @foreach ($areas as $area)
-                    <option value="{{ $area->id }}">{{ $area->nombre }}</option>
+                    <option value="{{ $area->id }}">{{ $area->  Nombre }}</option>
                 @endforeach
             </select>
         </div>
